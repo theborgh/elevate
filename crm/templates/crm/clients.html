@@ -1,0 +1,9 @@
+{% extends 'crm/base.html' %}
+{% block content %}
+{% for client in clients %}
+    <p>Id: {{client.id}}</p>
+    <p>Name: {{client.name}}</p>
+    <p>Occupation: {{client.occupation}}</p>
+    <p>Email: {{client.email}}</p>
+{% endfor %}
+{% endblock %}

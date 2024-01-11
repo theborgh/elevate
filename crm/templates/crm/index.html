@@ -1,0 +1,13 @@
+{% extends "crm/base.html" %} {% block content %}
+<h3>Homepage</h3>
+<p>Welcome to my website</p>
+
+<div>
+  <p>My name is {{first_name}} {{last_name}}</p>
+</div>
+
+{% if first_name == 'John' %}
+<p>My name is John</p>
+{% else %}
+<p>My name is not John</p>
+{% endif %} {% endblock %}
