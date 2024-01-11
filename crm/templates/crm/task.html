@@ -1,0 +1,18 @@
+{% extends "crm/base.html" %}
+{% block content %}
+
+<h3>Tasks</h3>
+
+{% for task in allTasks %}
+
+    <div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ task.title }}</h5>
+        <p class="card-text">{{ task.description }}</p>
+        <p>Created on {{ task.created_at }}</p>
+    </div>
+    </div>
+
+{% endfor %}
+
+{% endblock %}
