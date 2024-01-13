@@ -1,0 +1,17 @@
+{% extends "crm/base.html" %}
+{% block content %}
+
+<h3>Create your tasks here</h3>
+<p>Task form</p>
+
+<hr>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ TaskForm.as_p }}
+
+    <input type="submit" value="Create Task">
+
+</form>
+
+{% endblock %}

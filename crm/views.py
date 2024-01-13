@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Task
+from .forms import TaskForm
+
 
 def homepage(request):
     context = {'first_name': 'Jon', 'last_name': 'Doe'}
@@ -26,3 +28,8 @@ def clients(request):
 
 def register(request):
     return HttpResponse('This is the registration page')
+
+def task_form(request):
+    form = TaskForm()
+
+    return render(request, 'crm/task-form.html', {'TaskForm': form})
