@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Task
 from .forms import TaskForm
@@ -32,4 +32,12 @@ def register(request):
 def task_form(request):
     form = TaskForm()
 
-    return render(request, 'crm/task-form.html', {'TaskForm': form})
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/task')
+
+    context = {'TaskForm': form}
+
+    return render(request, 'crm/create-task.html', context)
